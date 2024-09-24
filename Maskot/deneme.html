@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MASKOT - Akıllı Sürdürülebilir Konut Teknolojileri</title>
+    <style>
+        /* Genel Stiller */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 100px; /* Header boyutuna göre boşluk bırakıldı */
+            background-color: #a0a0a00b;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed; /* Sabit pozisyon */
+            top: 0;
+            left: 0;
+            width: 100%; /* Tam genişlik */
+            z-index: 1000; /* Diğer içeriklerin üstünde görünsün */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav a {
+            color: #00796b;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+        nav a:last-child {
+    margin-right: 50px; /* İletişim yazısının sağına 30px boşluk ekledik */
+}
+
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-image: url('resimler/enerji.png'); /* Bir enerji tasarrufu görseli */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.241); /* Arka plan için şeffaflık */
+            z-index: 1; /* İçeriğin altında kalmasını sağlar */
+        }
+
+        .hero h2, .hero p, .hero a {
+            position: relative; /* Pseudo elementin üstünde görünmesi için */
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        .hero a {
+            background-color: #00796b;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .hero a:hover {
+            background-color: #004d40;
+        }
+
+        /* Hakkımızda Bölümü */
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #004d40;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        #about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        #about img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Takım Tanıtımı Bölümü */
+        #team {
+            background-color: #f9f9f9;
+            padding: 60px 40px;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            width: 22%;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            color: #004d40;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* İletişim Formu */
+        #contact {
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 60px 40px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #004d40;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00796b;
+        }
+
+        footer {
+            background-color: #004d40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #00e676;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            #about {
+                grid-template-columns: 1fr;
+            }
+
+            .team-container {
+                flex-direction: column;
+            }
+
+            .team-member {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="resimler/logo.png" alt="logo" style="height: 100px; width: 100px;">
+        <nav>
+            <a href="#about">Hakkımızda</a>
+            <a href="#team">Takım</a>
+            <a href="#contact">İletişim</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h2>Enerji Tasarrufunda Yeni Dönem</h2>
+            <p>MASKOT ile enerji kullanımınızı optimize edin ve çevreye katkıda bulunun.</p>
+            <a href="#download">Şimdi İndirin</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div style="padding-left: 40px;">
+            <h2>Hakkımızda</h2>
+            <p>MASKOT, enerji tasarrufunu artırmayı hedefleyen yenilikçi bir mobil uygulamadır. Yapay zeka destekli enerji puanlama sistemiyle kullanıcıların enerji tüketimlerini optimize etmelerini sağlıyoruz. Amacımız, kullanıcıların karbon ayak izini azaltarak sürdürülebilir bir yaşam tarzı benimsemelerine yardımcı olmaktır.</p>
+        </div>
+        <img src="resimler/telefon.png" alt="Enerji Tasarrufu Görseli">
+    </section>
+
+    <!-- Takım Tanıtımı Bölümü -->
+    <section id="team">
+        <h2>Takımımız</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="resimler/ilayda.jpeg" alt="İlayda Şenocak">
+                <h3>İlayda Şenocak</h3>
+            </div>
+            <div class="team-member">
+                <img src="resimler/emin.jpeg" alt="Mehmet Emin Hangün">
+                <h3>Mehmet Emin Hangün</h3>
+            </div>
+            <div class="team-member">
+                <img src="resimler/esma.jpeg" alt="Esma Sarıtop">
+                <h3>Esma Sarıtop</h3>
+            </div>
+            <div class="team-member">
+                <img src="resimler/harun.png" alt="Harun Biradlı">
+                <h3>Harun Biradlı</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Formu -->
+    <section id="contact">
+        <h2>Bizimle İletişime Geçin</h2>
+        <form action="#">
+            <input type="text" name="name" placeholder="Adınız" required>
+            <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+            <textarea name="message" rows="5" placeholder="Mesajınız"></textarea>
+            <input type="submit" value="Gönder">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MASKOT. Tüm Hakları Saklıdır.</p>
+        <a href="#">Gizlilik Politikası</a> | <a href="#">Kullanım Şartları</a>
+    </footer>
+
+</body>
+</html>
