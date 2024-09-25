@@ -5,26 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MASKOT - Akıllı Sürdürülebilir Konut Teknolojileri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <style>
         /* Genel Stiller */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: "Playfair Display", serif;
             margin: 0;
             padding: 0;
-            padding-top: 100px; /* Header boyutuna göre boşluk bırakıldı */
             background-color: #a0a0a00b;
-            color: #333;
+            color: #333333;
+            box-sizing: border-box; /* Kenar boşluklarının düzgün hesaplanması için */
         }
 
         /* Header */
         header {
-            background-color: #ffffff;
-            padding: 20px 20px;
+            background-color: rgb(255, 255, 255);
+            padding: 7px 7px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(25, 72, 106, 0.21);
             position: fixed; /* Sabit pozisyon */
             top: 0;
             left: 0;
@@ -38,54 +43,61 @@
         }
 
         nav a {
-            color: #00796b;
+            color: rgb(25, 72, 106);
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
 
         nav a:hover {
             text-decoration: underline;
         }
-        nav a:last-child {
-    margin-right: 50px; /* İletişim yazısının sağına 30px boşluk ekledik */
-}
 
+        nav a:last-child {
+            margin-right: 50px;
+        }
+        /* Genel boşluk ayarları */
+        section {
+            margin-bottom: 100px; /* Her bölüm arasında 100px boşluk olacak */
+        }
+
+        /* İlgili bölümlere özel boşluk ayarı */
+        #about, #team, #contact {
+            padding-top: 150px; /* Başlık yüksekliğine göre ayarlayın */
+            margin-top: -100px; /* Sabitlenen başlığa göre ayarlanmış negatif margin */
+            margin-bottom: 100px; /* Her bölümün arasında eşit boşluk */
+        }
 
         /* Hero Section */
         .hero {
             position: relative;
-            height: 100vh;
-            background-image: url('resimler/enerji.png'); /* Bir enerji tasarrufu görseli */
+            width: 100vw; /* Tam genişlik */
+            height: 100vh; /* Tam yükseklik */
+            background-image: url('resimler/WhatsApp Image 2024-09-25 at 18.21.44.jpeg');
             background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+            background-size: cover; /* Tüm alanı kaplayacak */
+            background-position: center; /* Görseli ortalayacak */
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: #ffffff;
             text-align: center;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.241); /* Arka plan için şeffaflık */
-            z-index: 1; /* İçeriğin altında kalmasını sağlar */
-        }
-
-        .hero h2, .hero p, .hero a {
-            position: relative; /* Pseudo elementin üstünde görünmesi için */
+        .hero-content {
+            position: relative;
             z-index: 2;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Hafif saydam arka plan */
+            padding: 30px;
+            border-radius: 10px;
         }
 
         .hero h2 {
             font-size: 3rem;
             margin-bottom: 20px;
+            color: #ffffff;
         }
 
         .hero p {
@@ -94,31 +106,45 @@
         }
 
         .hero a {
-            background-color: #00796b;
+            background-color: #19486a; /* Değiştirilen renk */
             padding: 15px 30px;
-            color: white;
+            color: #ffffff;
             font-size: 1.2rem;
-            border-radius: 5px;
+
             text-decoration: none;
             transition: background 0.3s;
         }
 
         .hero a:hover {
-            background-color: #004d40;
+            background-color: #19486a; /* Hover sırasında farklı bir renk */
+        }
+
+        /* Cam Efekti Stil */
+        .hero-content {
+            background: rgba(2, 2, 4, 0.45);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(27, 81, 4, 0.55);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
         }
 
         /* Hakkımızda Bölümü */
+
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
-            margin-bottom: 40px;
-            color: #004d40;
+            margin-bottom: 60px;
+            color: rgb(25, 72, 106);
+            font-weight: 700; /* 700 değeri ile yazıyı kalınlaştır */
         }
 
         p {
             font-size: 1.2rem;
             line-height: 1.8;
-            color: #555;
+            color: rgb(2, 2, 4);
+
         }
 
         #about {
@@ -131,46 +157,89 @@
         #about img {
             width: 100%;
             border-radius: 10px;
+
+
         }
 
         /* Takım Tanıtımı Bölümü */
-        #team {
-            background-color: #f9f9f9;
-            padding: 60px 40px;
+        .team-container {
+            display: flex;                /* Flexbox kullanarak yan yana dizme */
+
+            justify-content: center;      /* Öğeleri yatayda ortala */
+            padding: 20px;               /* İç boşluk */
         }
 
-        .team-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
+
 
         .team-member {
-            width: 22%;
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            position: relative;
+            /* LinkedIn logosu için gerekli */
+            margin: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;          /* Metni ortala */
         }
 
         .team-member img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 15px;
+            width: 200px;
+            /* Sabit genişlik */
+            height: 250px;
+            /* Sabit yükseklik, dikdörtgen */
+            border-radius: 10px;
+            /* Kenarları hafif yuvarlak */
+            margin-bottom: 10px;
+            transition: filter 0.3s ease;
+            /* Geçiş süresi */
+            object-fit: cover;
+            /* Resmi dikdörtgenin içine sığdır */
         }
 
-        .team-member h3 {
-            font-size: 1.5rem;
-            color: #004d40;
+        .team-member:hover img {
+            filter: blur(5px);
+            /* Sadece profil fotoğrafı bulanıklaşır */
+        }
+
+        .linkedin-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            /* Başlangıçta gizli */
+            width: 10px;
+            /* LinkedIn logosu boyutu küçültüldü */
+            height: 10px;
+            z-index: 1;
+            margin-left: 10px; /* Logonun metinden biraz uzak durması için boşluk */
+        }
+
+        .team-member:hover .linkedin-logo {
+            display: block;
+            /* Hover sırasında görünür yap */
+            filter: none;
+            /* Logo bulanıklaşmasın */
         }
 
         .team-member p {
-            font-size: 1rem;
-            color: #666;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
         }
+
+        .team-title {
+            width: 100%;                     /* Başlığın tüm genişliği kaplamasını sağlar */
+            margin-bottom: 20px;             /* Başlık ile üyeler arasında boşluk */
+        }
+
+
+
+
+
+
+
 
         /* İletişim Formu */
         #contact {
@@ -209,7 +278,7 @@
         }
 
         footer {
-            background-color: #004d40;
+            background-color: #19486a;
             color: white;
             padding: 20px;
             text-align: center;
@@ -217,100 +286,189 @@
         }
 
         footer a {
-            color: #00e676;
+            color: #ffffff;
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
         }
+        .footer-text {
+            color: white; /* Sadece bu yazının rengi beyaz olur */
+        }
 
         /* Responsive Tasarım */
         @media (max-width: 768px) {
+            body {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
             #about {
                 grid-template-columns: 1fr;
             }
 
-            .team-container {
-                flex-direction: column;
-            }
 
-            .team-member {
-                width: 100%;
-                margin-bottom: 20px;
-            }
         }
+
+
+        #about, #team, #contact {
+            padding-top: 150px; /* Başlık yüksekliğine göre ayarlayın */
+            margin-top: -150px; /* Olumsuz bir marj ile üst boşluğu kaldırın */
+            margin-bottom: 60px; /* Alt boşluk ekleyin */
+        }
+
+        .text-left {
+            text-align: left; /* Metni sola hizala */
+        }
+
+        #sendMailButton:hover{
+            background-color: #3a74aa !important;
+            color: rgb(255, 255, 255) !important;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <img src="resimler/logo.png" alt="logo" style="height: 100px; width: 100px;">
-        <nav>
-            <a href="#about">Hakkımızda</a>
-            <a href="#team">Takım</a>
-            <a href="#contact">İletişim</a>
-        </nav>
-    </header>
+<!-- Header -->
+<header>
+    <img  src="resimler/logo.png" alt="logo" style="height: 70px; width: 70px; margin-left: 80px">
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div>
-            <h2>Enerji Tasarrufunda Yeni Dönem</h2>
-            <p>MASKOT ile enerji kullanımınızı optimize edin ve çevreye katkıda bulunun.</p>
-            <a href="#download">Şimdi İndirin</a>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div style="padding-left: 40px;">
-            <h2>Hakkımızda</h2>
-            <p>MASKOT, enerji tasarrufunu artırmayı hedefleyen yenilikçi bir mobil uygulamadır. Yapay zeka destekli enerji puanlama sistemiyle kullanıcıların enerji tüketimlerini optimize etmelerini sağlıyoruz. Amacımız, kullanıcıların karbon ayak izini azaltarak sürdürülebilir bir yaşam tarzı benimsemelerine yardımcı olmaktır.</p>
-        </div>
-        <img src="resimler/telefon.png" alt="Enerji Tasarrufu Görseli">
-    </section>
+    <nav style="margin-right: 80px">
 
-    <!-- Takım Tanıtımı Bölümü -->
-    <section id="team">
-        <h2>Takımımız</h2>
-        <div class="team-container">
-            <div class="team-member">
-                <img src="resimler/ilayda.jpeg" alt="İlayda Şenocak">
-                <h3>İlayda Şenocak</h3>
-            </div>
-            <div class="team-member">
+        <a href="#about">Hakkımızda</a>
+        <a href="#team">Takımımız</a>
+        <a href="#contact">İletişim</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Enerji Tasarrufunda Yeni Dönem</h2>
+        <p style="color: rgba(255,255,255,0.71)!important">MASKOT ile enerji kullanımınızı optimize edin ve çevreye katkıda bulunun.</p>
+        <a href="#" class="btn btn- btn-lg">Şimdi İndirin</a>
+    </div>
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="container">
+    <div style="padding-left: 40px;" >
+        <h2>Hakkımızda</h2>
+        <p>MASKOT, enerji tasarrufunu artırmayı hedefleyen yenilikçi bir mobil uygulamadır. Yapay zeka destekli enerji puanlama sistemiyle kullanıcıların enerji tüketimlerini optimize etmelerini sağlıyoruz. Amacımız, kullanıcıların karbon ayak izini azaltarak sürdürülebilir bir yaşam tarzı benimsemelerine yardımcı olmaktır.</p>
+    </div>
+    <img src="resimler/tlfn.jpg" alt="Enerji Tasarrufu Görseli" style="margin-top: 70px">
+</section>
+
+
+<!--Takım tanıtımı-->
+<div id="team" class="team-container" style="display: block">
+    <h2>Takımımız</h2>
+
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <!-- Mehmet Emin Hangün -->
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/mehmet-emin-hang%C3%BCn-b12507269/" target="_blank">
                 <img src="resimler/emin.jpeg" alt="Mehmet Emin Hangün">
-                <h3>Mehmet Emin Hangün</h3>
-            </div>
-            <div class="team-member">
-                <img src="resimler/esma.jpeg" alt="Esma Sarıtop">
-                <h3>Esma Sarıtop</h3>
-            </div>
-            <div class="team-member">
+                <img class="linkedin-logo" src="resimler/linkedin-logo.png" alt="LinkedIn">
+            </a>
+            <p style="font-size: 22px; font-weight: bold; text-align: left;">Mehmet Emin Hangün</p>
+            <ul style="text-align: left;">
+                <li>Kurucu Ortak</li>
+                <li>Proje İletişim Sorumlusu</li>
+            </ul>
+        </div>
+
+        <!-- İlayda Şenocak -->
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/ilayda-senocak/" target="_blank">
+                <img src="resimler/ilayda.jpeg" alt="İlayda Şenocak">
+                <img class="linkedin-logo" src="resimler/linkedin-logo.png" alt="LinkedIn">
+            </a>
+            <p style="font-size: 22px; font-weight: bold; text-align: left;">İlayda Şenocak</p>
+            <ul style="text-align: left;">
+                <li>Kurucu Ortak</li>
+                <li>UI/UX Tasarım Uzmanı</li>
+            </ul>
+        </div>
+
+        <!-- Esma Sarıtop -->
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/esmasaritop/" target="_blank">
+                <img src="resimler/esmaa.jpeg" alt="Esma Sarıtop">
+                <img class="linkedin-logo" src="resimler/linkedin-logo.png" alt="LinkedIn">
+            </a>
+            <p style="font-size: 22px; font-weight: bold; text-align: left;">Esma Sarıtop</p>
+            <ul style="text-align: left;">
+                <li>Kurucu Ortak</li>
+                <li>PHP & Laravel Backend Geliştirici</li>
+            </ul>
+        </div>
+
+        <!-- Harun Biradlı -->
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/harunbiradlioffical/" target="_blank">
                 <img src="resimler/harun.png" alt="Harun Biradlı">
-                <h3>Harun Biradlı</h3>
+                <img class="linkedin-logo" src="resimler/linkedin-logo.png" alt="LinkedIn">
+            </a>
+            <p style="font-size: 22px; font-weight: bold; text-align: left;">Harun Biradlı</p>
+            <ul style="text-align: left;">
+                <li>Kurucu Ortak</li>
+                <li>Yapay Zeka Optimizasyon</li>
+                <li>Veri Analisti</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- İletişim Formu -->
+<section id="contact">
+    <h2>İletişim</h2>
+
+    <section class="container flex justify-content-center">
+        <div class="row">
+            <div class="col-md-6">
+                <iframe
+                        class="card-img-top p-3"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.7437472671445!2d39.19938067611277!3d38.67775687177181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4076c043f0ec934d%3A0x97da54a9bdfebc9a!2zRsSxcmF0IMOcbml2ZXJzaXRlc2k!5e0!3m2!1str!2str!4v1727185044380!5m2!1str!2str"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <br><br><br>
+                    <p class="card-text text-left" style="margin-top: 20px;"> <!-- Metin ortalama ve aşağı kaydırma -->
+                       <strong>Adres:</strong>Fırat Üniversitesi Teknoloji Fakültesi Yazılım Mühendisliği Elazığ/Merkez <br>
+                        <strong>E-Mail:</strong> maskotgirisim@gmail.com <br>
+                        <strong>Instagram:</strong> @maskot.app
+                    </p>
+                    <!-- Mail Gönder Butonu -->
+
+                    <a href="mailto:maskotgirisim@gmail.com?subject=Maskotİletisim" id="sendMailButton" class="btn btn-primary mt-4" style="background-color: rgba(25,72,106,0.96); border-color: #ffffff; padding: 15px 40px; font-size: 1.2rem; transition: all ease-in-out .1s">Mail Gönder</a>
+
+                </div>
             </div>
         </div>
     </section>
+</section>
 
-    <!-- İletişim Formu -->
-    <section id="contact">
-        <h2>Bizimle İletişime Geçin</h2>
-        <form action="#">
-            <input type="text" name="name" placeholder="Adınız" required>
-            <input type="email" name="email" placeholder="E-posta Adresiniz" required>
-            <textarea name="message" rows="5" placeholder="Mesajınız"></textarea>
-            <input type="submit" value="Gönder">
-        </form>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 MASKOT. Tüm Hakları Saklıdır.</p>
-        <a href="#">Gizlilik Politikası</a> | <a href="#">Kullanım Şartları</a>
-    </footer>
-
+<!-- Footer -->
+<footer>
+    <p class="footer-text">&copy; 2024 MASKOT. Tüm Hakları Saklıdır.</p>
+    <a href="#">Gizlilik Politikası</a> | <a href="#">Kullanım Şartları</a>
+</footer>
 </body>
+
+
 </html>
+
