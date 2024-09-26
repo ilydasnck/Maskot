@@ -1,0 +1,429 @@
+.ubuntu-regular {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.ubuntu-medium {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+/* Genel Stiller */
+body {
+    font-family: "Playfair Display", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #a0a0a00b;
+    color: #333333;
+    box-sizing: border-box; /* Kenar boşluklarının düzgün hesaplanması için */
+}
+
+/* Header */
+header {
+    background-color: rgb(255, 255, 255);
+    /*padding: 7px 7px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(25, 72, 106, 0.21);
+    position: fixed; /* Sabit pozisyon */
+    top: 0;
+    left: 0;
+    width: 100%; /* Tam genişlik */
+    z-index: 1000; /* Diğer içeriklerin üstünde görünsün */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Genel boşluk ayarları */
+section {
+    margin-bottom: 100px; /* Her bölüm arasında 100px boşluk olacak */
+}
+
+/* İlgili bölümlere özel boşluk ayarı */
+#about, #team, #contact {
+    padding-top: 150px; /* Başlık yüksekliğine göre ayarlayın */
+    margin-top: -100px; /* Sabitlenen başlığa göre ayarlanmış negatif margin */
+    margin-bottom: 100px; /* Her bölümün arasında eşit boşluk */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100vw; /* Tam genişlik */
+    height: 100vh; /* Tam yükseklik */
+    background-image: url('Maskot/resimler/aaa.21.44.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Tüm alanı kaplayacak */
+    background-position: center; /* Görseli ortalayacak */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.hero a {
+    background-color: #CDF336; /* Değiştirilen renk */
+    color: black;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+
+
+/* Cam Efekti Stil */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    top: 100px;
+    text-align: center;
+    padding: 30px;
+    font-family: "Ubuntu", sans-serif;
+    background: rgba(2, 2, 4, 0.44);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    transition: all ease-in .3s;
+    color: white;
+}
+
+.hero-content:hover{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+
+
+}
+
+.hero-content:hover h2{
+    color: #1a1a2b;
+}
+
+
+.hero-content:hover p{
+    color: #1a1a2b;
+}
+
+.hero-content:hover a {
+    background-color: #193127; /* Hover sırasında farklı bir renk */
+    color: white;
+}
+
+/* Hakkımızda Bölümü */
+
+h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: rgb(25, 72, 106);
+    font-weight: 700; /* 700 değeri ile yazıyı kalınlaştır */
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgb(2, 2, 4);
+
+}
+
+#about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+#about img {
+    width: 100%;
+    border-radius: 10px;
+
+
+}
+
+/* Takım Tanıtımı Bölümü */
+.team-container {
+    display: flex;                /* Flexbox kullanarak yan yana dizme */
+
+    justify-content: center;      /* Öğeleri yatayda ortala */
+    padding: 20px;               /* İç boşluk */
+}
+
+
+
+.team-member {
+    position: relative;
+    /* LinkedIn logosu için gerekli */
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;          /* Metni ortala */
+
+}
+
+.team-member img {
+    width: 200px;
+    /* Sabit genişlik */
+    height: 250px;
+    /* Sabit yükseklik, dikdörtgen */
+    border-radius: 10px;
+    /* Kenarları hafif yuvarlak */
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+    /* Geçiş süresi */
+    object-fit: cover;
+    /* Resmi dikdörtgenin içine sığdır */
+}
+
+.team-member:hover img {
+    filter: blur(2px);
+    /* Sadece profil fotoğrafı bulanıklaşır */
+}
+
+.linkedin-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    /* Başlangıçta gizli */
+    width: 100px !important;
+    /* LinkedIn logosu boyutu küçültüldü */
+    height: 100px !important;
+    z-index: 1;
+    margin-left: 10px; /* Logonun metinden biraz uzak durması için boşluk */
+}
+
+.team-member:hover .linkedin-logo {
+    display: block;
+    /* Hover sırasında görünür yap */
+    filter: none;
+    /* Logo bulanıklaşmasın */
+}
+
+.team-member p {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.team-title {
+    width: 100%;                     /* Başlığın tüm genişliği kaplamasını sağlar */
+    margin-bottom: 20px;             /* Başlık ile üyeler arasında boşluk */
+}
+
+
+
+
+
+
+
+
+/* İletişim Formu */
+#contact {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 60px 40px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #004d40;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #00796b;
+}
+
+footer {
+    background-color: rgba(2, 127, 149, 0.84);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+.footer-text {
+    color: white; /* Sadece bu yazının rengi beyaz olur */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #about {
+        grid-template-columns: 1fr;
+    }
+
+
+}
+
+
+#about, #team, #contact {
+    padding-top: 80px; /* Başlık yüksekliğine göre ayarlayın */
+    margin-top: -150px; /* Olumsuz bir marj ile üst boşluğu kaldırın */
+    margin-bottom: 60px; /* Alt boşluk ekleyin */
+}
+
+.text-left {
+    text-align: left; /* Metni sola hizala */
+}
+
+#sendMailButton:hover{
+    background-color: #064f5c !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+
+
+nav{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 10px 60px;
+    box-sizing: border-box;
+    transition: .5s;
+    z-index: 5;
+    background-color: rgba(55, 55, 55, 0.1);
+    backdrop-filter: blur(10px);
+}
+nav.black{
+    background: rgba(19, 19, 19, 0.8);
+    height: 80px;
+    padding: 10px 50px;
+}
+nav .logo{
+    float: left;
+}
+nav .logo img{
+    height: 80px;
+    transition: .5s;
+}
+nav.black .logo img{
+    height: 60px;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color:#fff;
+
+}
+nav ul li{
+    list-style: none;
+    margin-top: 25px;
+    margin-right: 50px;
+    line-height: none;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 1s;
+    text-shadow: 0 0 10px #000;
+    display: inline-block;
+
+
+}
+nav ul li a{
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#fff;
+    font-size:20px;
+    transition: 1s;
+    text-shadow: 0 0 10px #000;
+}
+/* nav ul li a{
+  line-height: none;
+  font-size: 18px;
+  color: white;
+  padding: 5px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 1s;
+  text-shadow: 0 0 10px #000;
+} */
+
+/* nav.black ul li a{
+  color: #fff;
+  line-height: 20px;
+} */
+nav.black ul li a{
+    color: #fff;
+    line-height: 18px;
+    font-size: 15px;
+}
+/* nav ul li a.active,
+nav ul li a:hover{
+  color: orange;
+} */
+nav ul li.active,
+nav ul li a:hover{
+    color: #46e807;
+}
